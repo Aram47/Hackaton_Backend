@@ -1,3 +1,4 @@
-node_modules
-.env
+.png
+.svg
 venv
+sgv_output
