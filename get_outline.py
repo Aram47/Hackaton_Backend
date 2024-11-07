@@ -64,7 +64,7 @@ def convert_and_get_outline(input_dir, output_dir):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
         
-    filename = input("Input PNG file name: ")
+    filename = "result"
     input_path = os.path.join(input_dir, filename + ".png")
     temp_black_path = os.path.join(output_dir, "temp_black_image.png")
     output_svg_path = os.path.join(output_dir, filename + ".svg")
@@ -79,7 +79,7 @@ def convert_and_get_outline(input_dir, output_dir):
     os.remove(temp_black_path)
 
 # Example usage
-input_directory = "."  # Replace with your input directory path
+input_directory = "./imgs"  # Replace with your input directory path
 output_directory = "./svg_output"  # Replace with your desired output directory path
 
 convert_and_get_outline(input_directory, output_directory)
