@@ -1,8 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { Readable } from "stream";
+import { exec } from 'child_process';
 import { fileURLToPath } from 'url';
-// import fetch from 'node-fetch'; 
 
 function base64ToBlob(base64, contentType = 'image/png') {
     // Remove the Data URI scheme prefix if present (e.g., "data:image/png;base64,")
@@ -77,6 +76,20 @@ class RemoveBgService {
                     console.log('File saved successfully at', savePath);
                 }
             });
+
+            // Run the bash script
+            exec('bash activate_env_and_get_svg.sh', (error, stdout, stderr) => {
+                if (error) {
+                    console.error(`Error executing script: ${error.message}`);
+                    return;
+                }
+                if (stderr) {
+                    console.error(`stderr: ${stderr}`);
+                    return;
+                }
+                console.log(`stdout: ${stdout}`);
+            });
+
         } catch (err) {
             console.error('Error:', err);
         }

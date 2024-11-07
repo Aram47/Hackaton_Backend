@@ -5,6 +5,11 @@ const svgRouter = new express.Router();
 const svgService = new SvgService();
 
 svgRouter.get('/', async (req, res) => {
-    await svgService.getSvgFromLocaly();
-    res.status(200).send("Ok");
+    res.sendFile(await svgService.getSvgFromLocaly(), (err) => {
+        if (err) {
+            res.status(500).send('Error sending the file');
+        }
+    });
 });
+
+export default svgRouter;
