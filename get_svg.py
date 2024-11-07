@@ -4,7 +4,7 @@ import numpy as np
 import svgwrite
 from PIL import Image
 
-ITEM_NAME = 'sweater'
+ITEM_NAME = 'result'
 
 def convert_png_to_black(input_path, output_path):
     # Open the PNG image
@@ -65,13 +65,8 @@ def convert_and_get_outline(input_dir, output_dir):
     # Ensure the output directory exists
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-<<<<<<<< HEAD:get_outline.py
-        
-    filename = "result"
-========
 
     filename = ITEM_NAME
->>>>>>>> script:get_svg.py
     input_path = os.path.join(input_dir, filename + ".png")
     temp_black_path = os.path.join(output_dir, "temp_black_image.png")
     output_svg_path = os.path.join(output_dir, filename + ".svg")
